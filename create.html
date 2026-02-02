@@ -375,9 +375,28 @@
                             <span class="required">*</span>活动名称：
                         </div>
                         <div class="form-content">
-                            <input type="text" class="form-input" placeholder="请输入活动名称，限20个字以内" maxlength="50">
+                            <input type="text" class="form-input" placeholder="请输入活动名称，限50个字符" maxlength="50">
                         </div>
                     </div>
+                    
+                    <div class="form-row">
+                        <div class="form-label">
+                            <span class="required">*</span>优先级：
+                        </div>
+                        <div class="form-content">
+                            <div style="display: flex; align-items: center; gap: 16px;">
+                                <input type="number" class="form-input" placeholder="请输入1-999的数字" min="1" max="999" value="1" style="width: 160px;">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="highest-priority">
+                                    <label for="highest-priority">设为最高优先级</label>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500" style="margin-top: 8px;">同时命中多个活动时的排序依据，数字越大优先级越高</div>
+                        </div>
+                    </div>
+
+                    <!-- 生效场景 -->
+                    <div class="section-title" style="margin-top: 40px;">生效场景</div>
                     
                     <div class="form-row">
                         <div class="form-label">
@@ -391,9 +410,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- 生效场景 -->
-                    <div class="section-title" style="margin-top: 40px;">生效场景</div>
                     
                     <div class="form-row">
                         <div class="form-label">
@@ -411,9 +427,10 @@
                                 </div>
                                 <div class="checkbox-item">
                                     <input type="checkbox" id="takeout">
-                                    <label for="takeout">外卖</label>
+                                    <label for="takeout">外卖（美团外卖、淘宝闪购、京东秒送、抖音外卖）</label>
                                 </div>
                             </div>
+                            <div class="text-sm text-gray-500" style="margin-top: 8px;">至少选择一种订单类型</div>
                         </div>
                     </div>
                     
@@ -518,7 +535,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
                                     </svg>
                                     <div style="font-size: 14px; color: #666;">点击上传图片</div>
-                                    <div style="font-size: 12px; color: #999; margin-top: 4px;">支持 PNG/JPG/BMP，不超过200KB</div>
+                                    <div style="font-size: 12px; color: #999; margin-top: 4px;">支持 PNG/JPG/BMP，不超过20KB</div>
                                 </div>
                                 <img id="imagePreview" alt="预览" style="display: none;">
                             </div>
@@ -602,6 +619,14 @@
         function handleImageUpload(e) {
             const file = e.target.files[0];
             if (file) {
+                // 校验文件大小（20KB = 20 * 1024 字节）
+                const maxSize = 20 * 1024;
+                if (file.size > maxSize) {
+                    alert('图片大小不能超过20KB，请重新选择！');
+                    e.target.value = '';
+                    return;
+                }
+                
                 const reader = new FileReader();
                 reader.onload = function(ev) {
                     const img = document.getElementById('imagePreview');

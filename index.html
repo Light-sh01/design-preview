@@ -65,49 +65,46 @@
         </div>
 
         <!-- 筛选条件 -->
-        <div class="bg-white rounded-xl shadow-sm p-4 mb-4">
-            <!-- 第一行 -->
-            <div class="flex items-center gap-4 mb-3">
-                <div class="flex items-center gap-2">
-                    <label class="text-sm text-gray-700 whitespace-nowrap">活动信息：</label>
+        <div class="bg-white rounded-xl shadow-sm p-6 mb-4">
+            <div class="grid grid-cols-12 gap-4 items-end">
+                <!-- 活动信息 -->
+                <div class="col-span-3">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">活动信息</label>
                     <input type="text" placeholder="请输入活动名称或ID" 
-                           class="px-3 py-1.5 border border-gray-300 rounded text-sm w-64 focus:outline-none focus:border-[#E31837]">
+                           class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-[#E31837] focus:ring-1 focus:ring-[#E31837]">
                 </div>
                 
-                <div class="flex items-center gap-2">
-                    <label class="text-sm text-gray-700 whitespace-nowrap">活动时间：</label>
-                    <input type="text" placeholder="开始日期" 
-                           class="px-3 py-1.5 border border-gray-300 rounded text-sm w-32 text-gray-400 focus:outline-none focus:border-[#E31837]">
-                    <span class="text-gray-400">→</span>
-                    <input type="text" placeholder="结束日期" 
-                           class="px-3 py-1.5 border border-gray-300 rounded text-sm w-32 text-gray-400 focus:outline-none focus:border-[#E31837]">
-                    <button class="w-6 h-6 border border-gray-300 rounded flex items-center justify-center text-gray-400 hover:border-gray-400">
-                        📅
-                    </button>
+                <!-- 活动时间 -->
+                <div class="col-span-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">活动时间</label>
+                    <div class="flex items-center gap-2">
+                        <input type="text" placeholder="开始日期" 
+                               class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-[#E31837] focus:ring-1 focus:ring-[#E31837]">
+                        <span class="text-gray-400">-</span>
+                        <input type="text" placeholder="结束日期" 
+                               class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-[#E31837] focus:ring-1 focus:ring-[#E31837]">
+                    </div>
                 </div>
-            </div>
-            
-            <!-- 第二行 -->
-            <div class="flex items-center gap-4">
-                <div class="flex items-center gap-2">
-                    <label class="text-sm text-gray-700 whitespace-nowrap">活动门店：</label>
-                    <select class="px-3 py-1.5 border border-gray-300 rounded text-sm w-48 focus:outline-none focus:border-[#E31837]">
+                
+                <!-- 活动门店 -->
+                <div class="col-span-3">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">活动门店</label>
+                    <select class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-[#E31837] focus:ring-1 focus:ring-[#E31837]">
                         <option value="">通用测试环境| 网商</option>
                         <option value="all">全部门店</option>
                         <option value="part">指定门店参与</option>
                     </select>
-                    <div class="px-3 py-1.5 border border-gray-300 rounded text-sm bg-gray-50 flex items-center gap-2">
-                        <span class="text-sm">全部门店</span>
-                        <button class="text-gray-400 hover:text-gray-600">✕</button>
-                    </div>
                 </div>
                 
-                <button class="px-6 py-1.5 bg-[#E31837] text-white rounded text-sm hover:bg-[#C41530] ml-4">
-                    查 询
-                </button>
-                <button class="px-6 py-1.5 border border-gray-300 text-gray-600 rounded text-sm hover:bg-gray-50">
-                    重 置
-                </button>
+                <!-- 操作按钮 -->
+                <div class="col-span-2 flex gap-2">
+                    <button class="flex-1 px-4 py-2 bg-[#E31837] text-white rounded-lg text-sm font-medium hover:bg-[#C41530] transition-colors">
+                        查询
+                    </button>
+                    <button class="flex-1 px-4 py-2 border border-gray-300 text-gray-600 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors">
+                        重置
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -269,6 +266,7 @@
                         </td>
                         <td class="px-4 py-4">
                             <span class="action-link" onclick="window.location.href='https://light-sh01.github.io/design-preview/create.html'">编辑</span>
+                            <span class="action-link">复制</span>
                             <span class="action-link">发布</span>
                             <span class="action-link" onclick="window.location.href='https://light-sh01.github.io/design-preview/records.html'">操作日志</span>
                             <span class="action-link">作废</span>
