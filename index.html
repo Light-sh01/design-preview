@@ -37,6 +37,23 @@
         .action-link:hover {
             color: #C41530;
         }
+        
+        .activity-name {
+            max-width: 280px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .activity-desc {
+            max-width: 280px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -48,7 +65,7 @@
                 <h1 class="text-2xl font-semibold text-gray-900">票据营销活动</h1>
                 <p class="text-sm text-gray-500 mt-1">管理票据打印的营销活动，支持标签和小票的千人千面精准营销</p>
             </div>
-            <button onclick="window.location.href='千人千面活动_创建页.html'" class="px-6 py-2.5 bg-[#E31837] text-white rounded-lg hover:bg-[#C41530] transition-colors shadow-sm font-medium">
+            <button onclick="window.location.href='https://light-sh01.github.io/design-preview/create.html'" class="px-6 py-2.5 bg-[#E31837] text-white rounded-lg hover:bg-[#C41530] transition-colors shadow-sm font-medium">
                 ➕ 新建活动
             </button>
         </div>
@@ -142,10 +159,10 @@
                         <td class="px-4 py-4">
                             <div class="flex flex-col gap-1">
                                 <div class="flex items-center gap-2">
-                                    <span class="text-sm font-medium text-gray-900">春节新客福利</span>
+                                    <span class="activity-name text-sm font-medium text-gray-900" title="春节新客福利">春节新客福利</span>
                                     <span class="text-xs font-mono text-gray-400">ACT202601001</span>
                                 </div>
-                                <span class="text-sm text-gray-500">首单立减，吸引新客转化，提升品牌曝光</span>
+                                <span class="activity-desc text-sm text-gray-500" title="首单立减，吸引新客转化，提升品牌曝光">首单立减，吸引新客转化，提升品牌曝光</span>
                             </div>
                         </td>
                         <td class="px-4 py-4">
@@ -161,9 +178,9 @@
                             <span class="text-sm font-medium text-[#E31837]">最高优先级</span>
                         </td>
                         <td class="px-4 py-4">
-                            <span class="action-link" onclick="window.location.href='千人千面活动_创建页.html'">编辑</span>
+                            <span class="action-link" onclick="window.location.href='https://light-sh01.github.io/design-preview/create.html'">编辑</span>
                             <span class="action-link">复制</span>
-                            <span class="action-link" onclick="window.location.href='千人千面活动_操作记录.html'">操作日志</span>
+                            <span class="action-link" onclick="window.location.href='https://light-sh01.github.io/design-preview/records.html'">操作日志</span>
                             <span class="action-link">作废</span>
                         </td>
                     </tr>
@@ -173,10 +190,10 @@
                         <td class="px-4 py-4">
                             <div class="flex flex-col gap-1">
                                 <div class="flex items-center gap-2">
-                                    <span class="text-sm font-medium text-gray-900">会员专属优惠</span>
+                                    <span class="activity-name text-sm font-medium text-gray-900" title="会员专属优惠">会员专属优惠</span>
                                     <span class="text-xs font-mono text-gray-400">ACT202601002</span>
                                 </div>
-                                <span class="text-sm text-gray-500">会员等级越高优惠越大，提升会员活跃度</span>
+                                <span class="activity-desc text-sm text-gray-500" title="会员等级越高优惠越大，提升会员活跃度">会员等级越高优惠越大，提升会员活跃度</span>
                             </div>
                         </td>
                         <td class="px-4 py-4">
@@ -192,9 +209,9 @@
                             <span class="text-sm font-medium text-gray-900">10</span>
                         </td>
                         <td class="px-4 py-4">
-                            <span class="action-link" onclick="window.location.href='千人千面活动_创建页.html'">编辑</span>
+                            <span class="action-link" onclick="window.location.href='https://light-sh01.github.io/design-preview/create.html'">编辑</span>
                             <span class="action-link">复制</span>
-                            <span class="action-link" onclick="window.location.href='千人千面活动_操作记录.html'">操作日志</span>
+                            <span class="action-link" onclick="window.location.href='https://light-sh01.github.io/design-preview/records.html'">操作日志</span>
                             <span class="action-link">作废</span>
                         </td>
                     </tr>
@@ -204,10 +221,10 @@
                         <td class="px-4 py-4">
                             <div class="flex flex-col gap-1">
                                 <div class="flex items-center gap-2">
-                                    <span class="text-sm font-medium text-gray-900">元旦促销活动</span>
+                                    <span class="activity-name text-sm font-medium text-gray-900" title="元旦促销活动">元旦促销活动</span>
                                     <span class="text-xs font-mono text-gray-400">ACT202512003</span>
                                 </div>
-                                <span class="text-sm text-gray-500">新年首单送好礼，带动节日销量增长</span>
+                                <span class="activity-desc text-sm text-gray-500" title="新年首单送好礼，带动节日销量增长">新年首单送好礼，带动节日销量增长</span>
                             </div>
                         </td>
                         <td class="px-4 py-4">
@@ -223,9 +240,9 @@
                             <span class="text-sm font-medium text-gray-900">5</span>
                         </td>
                         <td class="px-4 py-4">
-                            <span class="action-link" onclick="window.location.href='千人千面活动_创建页.html'">查看</span>
+                            <span class="action-link" onclick="window.location.href='https://light-sh01.github.io/design-preview/create.html'">查看</span>
                             <span class="action-link">复制</span>
-                            <span class="action-link" onclick="window.location.href='千人千面活动_操作记录.html'">操作日志</span>
+                            <span class="action-link" onclick="window.location.href='https://light-sh01.github.io/design-preview/records.html'">操作日志</span>
                         </td>
                     </tr>
 
@@ -234,10 +251,10 @@
                         <td class="px-4 py-4">
                             <div class="flex flex-col gap-1">
                                 <div class="flex items-center gap-2">
-                                    <span class="text-sm font-medium text-gray-900">老客回馈计划</span>
+                                    <span class="activity-name text-sm font-medium text-gray-900" title="老客回馈计划">老客回馈计划</span>
                                     <span class="text-xs font-mono text-gray-400">ACT202601004</span>
                                 </div>
-                                <span class="text-sm text-gray-500">持续回馈老客户，提升复购率和忠诚度</span>
+                                <span class="activity-desc text-sm text-gray-500" title="持续回馈老客户，提升复购率和忠诚度">持续回馈老客户，提升复购率和忠诚度</span>
                             </div>
                         </td>
                         <td class="px-4 py-4">
@@ -253,9 +270,9 @@
                             <span class="text-sm font-medium text-gray-900">8</span>
                         </td>
                         <td class="px-4 py-4">
-                            <span class="action-link" onclick="window.location.href='千人千面活动_创建页.html'">查看</span>
+                            <span class="action-link" onclick="window.location.href='https://light-sh01.github.io/design-preview/create.html'">查看</span>
                             <span class="action-link">复制</span>
-                            <span class="action-link" onclick="window.location.href='千人千面活动_操作记录.html'">操作日志</span>
+                            <span class="action-link" onclick="window.location.href='https://light-sh01.github.io/design-preview/records.html'">操作日志</span>
                         </td>
                     </tr>
 
@@ -264,10 +281,10 @@
                         <td class="px-4 py-4">
                             <div class="flex flex-col gap-1">
                                 <div class="flex items-center gap-2">
-                                    <span class="text-sm font-medium text-gray-900">外卖满减促销</span>
+                                    <span class="activity-name text-sm font-medium text-gray-900" title="外卖满减促销">外卖满减促销</span>
                                     <span class="text-xs font-mono text-gray-400">ACT202601005</span>
                                 </div>
-                                <span class="text-sm text-gray-500">仅外卖订单，满50减10，刺激客单价</span>
+                                <span class="activity-desc text-sm text-gray-500" title="仅外卖订单，满50减10，刺激客单价">仅外卖订单，满50减10，刺激客单价</span>
                             </div>
                         </td>
                         <td class="px-4 py-4">
@@ -287,6 +304,38 @@
                             <span class="action-link">发布</span>
                             <span class="action-link">删除</span>
                         </td>
+                    </tr>
+                    
+                    <!-- 行6：测试超长文本 -->
+                    <tr class="table-row">
+                        <td class="px-4 py-4">
+                            <div class="flex flex-col gap-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="activity-name text-sm font-medium text-gray-900" title="2026年春节超级大促销活动暨新客专享福利计划第一期">2026年春节超级大促销活动暨新客专享福利计划第一期</span>
+                                    <span class="text-xs font-mono text-gray-400">ACT202601006</span>
+                                </div>
+                                <span class="activity-desc text-sm text-gray-500" title="本次活动针对所有新注册用户，提供首单立减20元优惠券，同时赠送积分和会员权益，活动时间有限，快来参与吧！本次活动仅限堂食和外卖订单，自提订单不参与。">本次活动针对所有新注册用户，提供首单立减20元优惠券，同时赠送积分和会员权益，活动时间有限，快来参与吧！本次活动仅限堂食和外卖订单，自提订单不参与。</span>
+                            </div>
+                        </td>
+                        <td class="px-4 py-4">
+                            <span class="status-badge status-active">进行中</span>
+                        </td>
+                        <td class="px-4 py-4">
+                            <span class="text-sm text-gray-900">2026-02-01 ~ 02-28</span>
+                        </td>
+                        <td class="px-4 py-4">
+                            <span class="text-sm text-gray-600">全部门店</span>
+                        </td>
+                        <td class="px-4 py-4">
+                            <span class="text-sm font-medium text-gray-900">3</span>
+                        </td>
+                        <td class="px-4 py-4">
+                            <span class="action-link" onclick="window.location.href='https://light-sh01.github.io/design-preview/create.html'">编辑</span>
+                            <span class="action-link">复制</span>
+                            <span class="action-link" onclick="window.location.href='https://light-sh01.github.io/design-preview/records.html'">操作日志</span>
+                            <span class="action-link">作废</span>
+                        </td>
+                    </tr>
                     </tr>
                 </tbody>
             </table>
