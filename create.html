@@ -480,6 +480,7 @@
                                     <option value="level">指定等级会员</option>
                                     <option value="wework">企微好友</option>
                                     <option value="student">学生用户</option>
+                                    <option value="tag">指定标签</option>
                                 </select>
                                 
                                 <!-- 权益卡二级选择 -->
@@ -487,6 +488,9 @@
                                 
                                 <!-- 指定等级会员二级选择 -->
                                 <input type="text" id="levelSelector" class="form-input" placeholder="请选择会员等级" style="width: 300px; display: none;">
+                                
+                                <!-- 指定标签二级选择 -->
+                                <input type="text" id="tagSelector" class="form-input" placeholder="请选择会员标签" style="width: 300px; display: none;">
                                 
                                 <!-- 说明文案 -->
                                 <span id="audienceDesc" style="font-size: 13px; color: #999; display: none;"></span>
@@ -584,6 +588,7 @@
             // 隐藏所有二级选择器
             document.getElementById('cardSelector').style.display = 'none';
             document.getElementById('levelSelector').style.display = 'none';
+            document.getElementById('tagSelector').style.display = 'none';
             
             const descDiv = document.getElementById('audienceDesc');
             descDiv.style.display = 'none';
@@ -594,6 +599,10 @@
                 document.getElementById('cardSelector').style.display = 'block';
             } else if (value === 'level') {
                 document.getElementById('levelSelector').style.display = 'block';
+            } else if (value === 'tag') {
+                document.getElementById('tagSelector').style.display = 'block';
+                descDiv.innerHTML = '基于会员分群系统动态打标的用户群体';
+                descDiv.style.display = 'block';
             } else if (value === 'wework') {
                 descDiv.innerHTML = '企微好友：已经添加品牌客服为好友的客户';
                 descDiv.style.display = 'block';
