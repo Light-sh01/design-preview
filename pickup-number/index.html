@@ -161,21 +161,8 @@
   .btn.primary:hover { background: #d35400; border-color: #d35400; color: #fff; }
   .btn.secondary { background: #fff; color: #e67e22; border-color: #e67e22; }
 
-  .new-feature {
-    position: relative;
-    background: #fffbf0; border: 1px dashed #e67e22; border-radius: 6px;
-    padding: 14px 20px; margin: -4px 0 4px 0;
-  }
-
-  .new-feature::before {
-    content: "NEW"; position: absolute; top: -9px; left: 16px;
-    background: #e67e22; color: #fff; font-size: 10px; font-weight: 700;
-    padding: 1px 6px; border-radius: 3px; letter-spacing: 0.5px;
-  }
-
-  .new-feature .toggle-desc {
-    font-size: 12px; color: #999; margin-top: 6px; line-height: 1.8;
-    padding-left: 50px;
+  .toggle-hint {
+    font-size: 12px; color: #999; line-height: 1.8; margin-top: 4px;
   }
 
   .preorder-hint { font-size: 12px; color: #999; line-height: 1.8; margin-top: 4px; }
@@ -279,15 +266,11 @@
   <div class="form-row" id="row-split">
     <div class="form-label">小程序/员工端前缀独立：</div>
     <div class="form-content">
-      <div class="new-feature">
-        <div class="toggle-wrap">
-          <div class="toggle" id="toggle-split" onclick="toggleSplit(this)"></div>
-          <span style="font-size:14px;color:#333;" id="split-status-text">关闭</span>
-        </div>
-        <div class="toggle-desc">
-          开启后，堂食和自提区分小程序下单和员工端下单（POS/APP），可分别设置前缀<br>
-          关闭时，堂食和自提各用统一前缀，不区分下单来源
-        </div>
+      <div class="toggle-wrap">
+        <div class="toggle" id="toggle-split" onclick="toggleSplit(this)"></div>
+      </div>
+      <div class="toggle-hint" id="split-hint">
+        开启后，堂食和自提区分小程序下单和员工端下单（POS/APP）
       </div>
     </div>
   </div>
@@ -479,7 +462,6 @@ function togglePreorder(el) {
 function toggleSplit(el) {
   el.classList.toggle('active');
   splitEnabled = el.classList.contains('active');
-  document.getElementById('split-status-text').textContent = splitEnabled ? '开启' : '关闭';
   onStateChange();
 }
 
