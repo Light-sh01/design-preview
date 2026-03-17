@@ -27,46 +27,33 @@
   .page-header h1 { font-size: 16px; font-weight: 600; color: #1a1a1a; }
 
   .badge {
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 10px;
-    background: #fff3e0;
-    color: #e67e22;
-    font-weight: 500;
+    font-size: 11px; padding: 2px 8px; border-radius: 10px;
+    background: #fff3e0; color: #e67e22; font-weight: 500;
   }
 
   .container {
-    max-width: 860px;
-    margin: 24px auto;
-    background: #fff;
-    border-radius: 8px;
+    max-width: 860px; margin: 24px auto;
+    background: #fff; border-radius: 8px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     padding: 32px 40px 24px;
   }
 
-  /* ── Form Row ── */
   .form-row {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 22px;
-    min-height: 36px;
+    display: flex; align-items: flex-start;
+    margin-bottom: 22px; min-height: 36px;
   }
 
+  .form-row.hidden { display: none; }
+
   .form-label {
-    width: 168px;
-    min-width: 168px;
-    text-align: right;
-    padding-right: 12px;
-    padding-top: 6px;
-    font-size: 14px;
-    color: #333;
-    white-space: nowrap;
+    width: 180px; min-width: 180px;
+    text-align: right; padding-right: 12px; padding-top: 6px;
+    font-size: 14px; color: #333; white-space: nowrap;
   }
 
   .form-label.required::before { content: "* "; color: #e25d3a; }
   .form-content { flex: 1; }
 
-  /* ── Radio ── */
   .radio-group { display: flex; gap: 24px; padding-top: 6px; flex-wrap: wrap; }
 
   .radio-item {
@@ -91,7 +78,6 @@
   .radio-item input:checked + .radio-dot { border-color: #e67e22; }
   .radio-item input:checked + .radio-dot::after { background: #e67e22; }
 
-  /* ── Toggle ── */
   .toggle-wrap { display: flex; align-items: center; gap: 10px; padding-top: 4px; }
 
   .toggle {
@@ -109,7 +95,6 @@
 
   .toggle.active::after { left: 20px; }
 
-  /* ── Input ── */
   .text-input {
     width: 280px; height: 36px;
     border: 1px solid #d9d9d9; border-radius: 4px;
@@ -121,15 +106,12 @@
   .text-input::placeholder { color: #bfbfbf; }
   .text-input.short { width: 80px; text-align: center; }
 
-  /* ── Prefix Fields ── */
   .prefix-fields { display: flex; flex-direction: column; gap: 0; }
 
   .prefix-item {
     display: flex; align-items: center; height: 52px;
     animation: fadeIn 0.2s ease both;
   }
-
-  .prefix-item.group-gap { margin-top: 4px; }
 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-4px); }
@@ -145,19 +127,14 @@
 
   .prefix-item .item-label::before { content: "* "; color: #e25d3a; white-space: pre; }
 
-  .prefix-item .item-label .sub-tag {
+  .item-new-tag {
     font-size: 10px; padding: 1px 5px; border-radius: 3px;
-    flex-shrink: 0; font-weight: 500; line-height: 16px;
+    font-weight: 700; line-height: 16px; letter-spacing: 0.3px;
+    background: #e67e22; color: #fff; margin-left: 6px; flex-shrink: 0;
   }
 
-  .sub-tag.preorder { background: #fff3e0; color: #e67e22; }
-
-  /* ── Group spacing ── */
-
-  /* ── Hint ── */
   .hint { font-size: 12px; color: #999; line-height: 1.8; margin-top: 4px; }
 
-  /* ── Inline form ── */
   .inline-form {
     display: flex; align-items: center; gap: 8px;
     padding-top: 4px; font-size: 14px;
@@ -170,10 +147,8 @@
     appearance: none; outline: none; cursor: pointer;
   }
 
-  /* ── Divider ── */
-  .divider { border: none; border-top: 1px dashed #e8e8e8; margin: 4px 0 22px 168px; }
+  .divider { border: none; border-top: 1px dashed #e8e8e8; margin: 4px 0 22px 180px; }
 
-  /* ── Buttons ── */
   .btn-row {
     display: flex; justify-content: center; gap: 12px;
     padding-top: 16px; border-top: 1px solid #f0f0f0; margin-top: 8px;
@@ -190,7 +165,6 @@
   .btn.primary:hover { background: #d35400; border-color: #d35400; color: #fff; }
   .btn.secondary { background: #fff; color: #e67e22; border-color: #e67e22; }
 
-  /* ── NEW highlight ── */
   .new-feature {
     position: relative;
     background: #fffbf0; border: 1px dashed #e67e22; border-radius: 6px;
@@ -208,14 +182,9 @@
     padding-left: 50px;
   }
 
-  /* ── Preorder hint (dynamic) ── */
-  .preorder-hint {
-    font-size: 12px; color: #999; line-height: 1.8; margin-top: 4px;
-  }
-
+  .preorder-hint { font-size: 12px; color: #999; line-height: 1.8; margin-top: 4px; }
   .preorder-hint .hl { color: #e67e22; font-weight: 500; }
 
-  /* ── State bar ── */
   .state-bar {
     position: fixed; bottom: 0; left: 0; right: 0;
     background: #1a1a2e; color: #fff;
@@ -224,13 +193,12 @@
     z-index: 100;
   }
 
-  .state-bar .state-label { display: flex; align-items: center; gap: 8px; }
+  .state-bar .state-label { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .state-bar .dot { width: 8px; height: 8px; border-radius: 50%; }
   .dot.on { background: #2ecc71; }
   .dot.off { background: #95a5a6; }
   .state-bar .sep { color: #444; margin: 0 8px; }
 
-  /* ── Preview ── */
   .comparison {
     margin-top: 16px; padding: 12px 16px;
     background: #f8f9fa; border-radius: 6px;
@@ -254,6 +222,7 @@
   .tag-online { background: #e8f5e9; color: #2e7d32; }
   .tag-offline { background: #e3f2fd; color: #1565c0; }
   .tag-preorder { background: #fff3e0; color: #e67e22; }
+  .tag-new { background: #fce4ec; color: #c62828; }
   .tag-keep { background: #f5f5f5; color: #666; }
 </style>
 </head>
@@ -261,7 +230,7 @@
 
 <div class="page-header">
   <h1>门店自定义取餐号配置</h1>
-  <span class="badge">交互原型 v3</span>
+  <span class="badge">交互原型 v4</span>
 </div>
 
 <div class="container">
@@ -270,17 +239,17 @@
   <div class="form-row">
     <div class="form-label">前缀规则：</div>
     <div class="form-content">
-      <div class="radio-group">
+      <div class="radio-group" id="mode-radios">
         <label class="radio-item">
-          <input type="radio" name="prefix_rule" value="fixed">
+          <input type="radio" name="prefix_rule" value="fixed" onchange="switchMode('fixed')">
           <span class="radio-dot"></span> 固定前缀
         </label>
         <label class="radio-item">
-          <input type="radio" name="prefix_rule" value="type" checked>
+          <input type="radio" name="prefix_rule" value="type" checked onchange="switchMode('type')">
           <span class="radio-dot"></span> 按订单类型设置前缀
         </label>
         <label class="radio-item">
-          <input type="radio" name="prefix_rule" value="channel">
+          <input type="radio" name="prefix_rule" value="channel" onchange="switchMode('channel')">
           <span class="radio-dot"></span> 按下单渠道设置前缀
         </label>
       </div>
@@ -288,7 +257,7 @@
   </div>
 
   <!-- 预订单前缀独立 -->
-  <div class="form-row">
+  <div class="form-row" id="row-preorder">
     <div class="form-label">预订单前缀独立：</div>
     <div class="form-content">
       <div class="toggle-wrap">
@@ -301,7 +270,7 @@
   </div>
 
   <!-- 随机前缀 -->
-  <div class="form-row">
+  <div class="form-row" id="row-random">
     <div class="form-label">随机前缀：</div>
     <div class="form-content">
       <div class="toggle-wrap">
@@ -310,8 +279,8 @@
     </div>
   </div>
 
-  <!-- ★ 线上线下前缀独立 -->
-  <div class="form-row">
+  <!-- 小程序/员工端前缀独立（仅按订单类型时显示） -->
+  <div class="form-row" id="row-split">
     <div class="form-label">小程序/员工端前缀独立：</div>
     <div class="form-content">
       <div class="new-feature">
@@ -328,7 +297,7 @@
   </div>
 
   <!-- 前缀输入区域 -->
-  <div class="form-row">
+  <div class="form-row" id="row-fields">
     <div class="form-label" style="visibility:hidden;">占位</div>
     <div class="form-content">
       <div class="prefix-fields" id="prefix-fields"></div>
@@ -338,7 +307,7 @@
   <hr class="divider">
 
   <!-- 取餐号共用 -->
-  <div class="form-row">
+  <div class="form-row" id="row-shared">
     <div class="form-label">取餐号共用：</div>
     <div class="form-content">
       <div class="toggle-wrap">
@@ -402,7 +371,7 @@
   </div>
 
   <!-- 效果预览 -->
-  <div class="comparison" id="comparison-panel">
+  <div class="comparison">
     <strong>取餐号效果预览</strong>
     <table id="preview-table"></table>
   </div>
@@ -411,6 +380,8 @@
 <!-- 底部状态栏 -->
 <div class="state-bar">
   <div class="state-label">
+    <span id="state-mode">按订单类型设置前缀</span>
+    <span class="sep">|</span>
     <span class="dot off" id="dot-split"></span>
     <span id="state-split">小程序/员工端前缀独立：关</span>
     <span class="sep">|</span>
@@ -422,52 +393,88 @@
 </div>
 
 <script>
+let prefixMode = 'type';
 let splitEnabled = false;
 let preorderEnabled = false;
 const savedValues = {};
 
+const MODE_LABELS = {
+  fixed: '固定前缀',
+  type: '按订单类型设置前缀',
+  channel: '按下单渠道设置前缀'
+};
+
 function getFields() {
+  if (prefixMode === 'fixed') {
+    return [{ key: 'fixed', label: '前缀' }];
+  }
+
+  if (prefixMode === 'channel') {
+    return [
+      { key: 'ch_wechat',    label: '微信小程序' },
+      { key: 'ch_alipay',    label: '支付宝小程序' },
+      { key: 'ch_douyin',    label: '抖音小程序' },
+      { key: 'ch_pos',       label: 'POS' },
+      { key: 'ch_app',       label: 'APP' },
+      { key: 'ch_meituan',   label: '美团在线点', isNew: true },
+      { key: 'ch_douyin_ol', label: '抖音在线点', isNew: true },
+      { key: 'ch_other',     label: '其他' },
+    ];
+  }
+
   const fields = [];
-
   if (!splitEnabled && !preorderEnabled) {
-    fields.push({ key: 'dine_in',  label: '堂食', group: 'dine' });
-    fields.push({ key: 'pickup',   label: '自提', group: 'pickup' });
-    fields.push({ key: 'delivery', label: '外卖', group: 'delivery' });
-    fields.push({ key: 'other',    label: '其他', group: 'other' });
+    fields.push({ key: 'dine_in',  label: '堂食' });
+    fields.push({ key: 'pickup',   label: '自提' });
+    fields.push({ key: 'delivery', label: '外卖' });
+    fields.push({ key: 'other',    label: '其他' });
+  } else if (!splitEnabled && preorderEnabled) {
+    fields.push({ key: 'dine_in',     label: '堂食' });
+    fields.push({ key: 'dine_in_pre', label: '堂食预订单', preorder: true });
+    fields.push({ key: 'pickup',      label: '自提' });
+    fields.push({ key: 'pickup_pre',  label: '自提预订单', preorder: true });
+    fields.push({ key: 'delivery',    label: '外卖' });
+    fields.push({ key: 'other',       label: '其他' });
+  } else if (splitEnabled && !preorderEnabled) {
+    fields.push({ key: 'mp_dine_in',    label: '小程序堂食',  channel: 'online' });
+    fields.push({ key: 'staff_dine_in', label: '员工端堂食',  channel: 'offline' });
+    fields.push({ key: 'mp_pickup',     label: '小程序自提',  channel: 'online' });
+    fields.push({ key: 'staff_pickup',  label: '员工端自提',  channel: 'offline' });
+    fields.push({ key: 'delivery',      label: '外卖' });
+    fields.push({ key: 'other',         label: '其他' });
+  } else {
+    fields.push({ key: 'mp_dine_in',      label: '小程序堂食',       channel: 'online' });
+    fields.push({ key: 'mp_dine_in_pre',  label: '小程序堂食预订单',  channel: 'online', preorder: true });
+    fields.push({ key: 'staff_dine_in',   label: '员工端堂食',       channel: 'offline' });
+    fields.push({ key: 'mp_pickup',       label: '小程序自提',       channel: 'online' });
+    fields.push({ key: 'mp_pickup_pre',   label: '小程序自提预订单',  channel: 'online', preorder: true });
+    fields.push({ key: 'staff_pickup',    label: '员工端自提',       channel: 'offline' });
+    fields.push({ key: 'delivery',        label: '外卖' });
+    fields.push({ key: 'other',           label: '其他' });
   }
-  else if (!splitEnabled && preorderEnabled) {
-    fields.push({ key: 'dine_in',         label: '堂食',       group: 'dine' });
-    fields.push({ key: 'dine_in_pre',     label: '堂食预订单',  group: 'dine', preorder: true });
-    fields.push({ key: 'pickup',          label: '自提',       group: 'pickup' });
-    fields.push({ key: 'pickup_pre',      label: '自提预订单',  group: 'pickup', preorder: true });
-    fields.push({ key: 'delivery',        label: '外卖',       group: 'delivery' });
-    fields.push({ key: 'other',           label: '其他',       group: 'other' });
-  }
-  else if (splitEnabled && !preorderEnabled) {
-    fields.push({ key: 'mp_dine_in',  label: '小程序堂食', group: 'dine', channel: 'online' });
-    fields.push({ key: 'staff_dine_in', label: '员工端堂食', group: 'dine', channel: 'offline' });
-    fields.push({ key: 'mp_pickup',     label: '小程序自提', group: 'pickup', channel: 'online' });
-    fields.push({ key: 'staff_pickup',  label: '员工端自提', group: 'pickup', channel: 'offline' });
-    fields.push({ key: 'delivery',      label: '外卖',       group: 'delivery' });
-    fields.push({ key: 'other',         label: '其他',       group: 'other' });
-  }
-  else {
-    fields.push({ key: 'mp_dine_in',      label: '小程序堂食',       group: 'dine', channel: 'online' });
-    fields.push({ key: 'mp_dine_in_pre',  label: '小程序堂食预订单',  group: 'dine', channel: 'online', preorder: true });
-    fields.push({ key: 'staff_dine_in',   label: '员工端堂食',       group: 'dine', channel: 'offline' });
-    fields.push({ key: 'mp_pickup',       label: '小程序自提',       group: 'pickup', channel: 'online' });
-    fields.push({ key: 'mp_pickup_pre',   label: '小程序自提预订单',  group: 'pickup', channel: 'online', preorder: true });
-    fields.push({ key: 'staff_pickup',    label: '员工端自提',       group: 'pickup', channel: 'offline' });
-    fields.push({ key: 'delivery',        label: '外卖',             group: 'delivery' });
-    fields.push({ key: 'other',           label: '其他',             group: 'other' });
-  }
-
   return fields;
 }
 
-function toggleSwitch(el) {
-  el.classList.toggle('active');
+function switchMode(mode) {
+  saveCurrentValues();
+  prefixMode = mode;
+
+  const showSplit = mode === 'type';
+  document.getElementById('row-split').classList.toggle('hidden', !showSplit);
+
+  const showPreorder = mode === 'type';
+  document.getElementById('row-preorder').classList.toggle('hidden', !showPreorder);
+
+  const showShared = mode !== 'fixed';
+  document.getElementById('row-shared').classList.toggle('hidden', !showShared);
+
+  renderFields();
+  renderPreview();
+  updatePreorderHint();
+  updateStateBar();
 }
+
+function toggleSwitch(el) { el.classList.toggle('active'); }
 
 function togglePreorder(el) {
   el.classList.toggle('active');
@@ -507,9 +514,10 @@ function renderFields() {
     item.style.animationDelay = (i * 0.03) + 's';
 
     const existingValue = savedValues[f.key] || '';
+    const newTag = f.isNew ? '<span class="item-new-tag">NEW</span>' : '';
 
     item.innerHTML = `
-      <span class="item-label">${f.label}</span>
+      <span class="item-label">${f.label}</span>${newTag}
       <input type="text" class="text-input" data-key="${f.key}"
              placeholder="限5个字符且只能输入数字英文字母"
              maxlength="5" value="${existingValue}"
@@ -547,6 +555,7 @@ function renderPreview() {
     if (f.channel === 'online') tagClass = 'tag-online';
     if (f.channel === 'offline') tagClass = 'tag-offline';
     if (f.preorder) tagClass = 'tag-preorder';
+    if (f.isNew) tagClass = 'tag-new';
 
     html += `<tr>
       <td><span class="tag ${tagClass}">${f.label}</span></td>
@@ -560,11 +569,38 @@ function renderPreview() {
 function updateStateBar() {
   const fields = getFields();
 
-  document.getElementById('dot-split').className = splitEnabled ? 'dot on' : 'dot off';
-  document.getElementById('state-split').textContent = `小程序/员工端前缀独立：${splitEnabled ? '开' : '关'}`;
+  document.getElementById('state-mode').textContent = MODE_LABELS[prefixMode];
 
-  document.getElementById('dot-preorder').className = preorderEnabled ? 'dot on' : 'dot off';
-  document.getElementById('state-preorder').textContent = `预订单前缀独立：${preorderEnabled ? '开' : '关'}`;
+  const splitRow = document.getElementById('dot-split').parentElement;
+  const splitDot = document.getElementById('dot-split');
+  const splitText = document.getElementById('state-split');
+
+  if (prefixMode === 'type') {
+    splitDot.style.display = '';
+    splitText.style.display = '';
+    splitDot.previousElementSibling && (document.querySelectorAll('.state-bar .sep')[0].style.display = '');
+    splitDot.className = splitEnabled ? 'dot on' : 'dot off';
+    splitText.textContent = `小程序/员工端：${splitEnabled ? '开' : '关'}`;
+  } else {
+    splitDot.style.display = 'none';
+    splitText.style.display = 'none';
+    document.querySelectorAll('.state-bar .sep')[0].style.display = 'none';
+  }
+
+  const preorderDot = document.getElementById('dot-preorder');
+  const preorderText = document.getElementById('state-preorder');
+
+  if (prefixMode === 'type') {
+    preorderDot.style.display = '';
+    preorderText.style.display = '';
+    document.querySelectorAll('.state-bar .sep')[1].style.display = '';
+    preorderDot.className = preorderEnabled ? 'dot on' : 'dot off';
+    preorderText.textContent = `预订单：${preorderEnabled ? '开' : '关'}`;
+  } else {
+    preorderDot.style.display = 'none';
+    preorderText.style.display = 'none';
+    document.querySelectorAll('.state-bar .sep')[1].style.display = 'none';
+  }
 
   document.getElementById('state-count').textContent = `当前 ${fields.length} 个前缀项`;
 }
@@ -572,6 +608,7 @@ function updateStateBar() {
 renderFields();
 renderPreview();
 updatePreorderHint();
+updateStateBar();
 </script>
 
 </body>
