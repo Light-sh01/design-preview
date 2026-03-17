@@ -246,9 +246,7 @@
       <div class="toggle-wrap">
         <div class="toggle" id="toggle-preorder" onclick="togglePreorder(this)"></div>
       </div>
-      <div class="preorder-hint" id="preorder-hint">
-        开启后，新增堂食预订单、自提预订单的独立前缀
-      </div>
+      <div class="preorder-hint" id="preorder-hint"></div>
     </div>
   </div>
 
@@ -503,16 +501,7 @@ function renderFields() {
   });
 }
 
-function updatePreorderHint() {
-  const hint = document.getElementById('preorder-hint');
-  if (prefixMode === 'channel') {
-    hint.innerHTML = '开启后，新增<span class="hl">微信小程序预订单</span>、<span class="hl">支付宝小程序预订单</span>、<span class="hl">抖音小程序预订单</span>的独立前缀<br><span style="color:#bbb;">POS、APP、美团在线点、抖音在线点、其他无预订单场景</span>';
-  } else if (splitEnabled) {
-    hint.innerHTML = '开启后，新增<span class="hl">小程序堂食预订单</span>、<span class="hl">小程序自提预订单</span>的独立前缀<br><span style="color:#bbb;">员工端无预订单场景，不生成对应前缀项</span>';
-  } else {
-    hint.innerHTML = '开启后，新增<span class="hl">堂食预订单</span>、<span class="hl">自提预订单</span>的独立前缀';
-  }
-}
+function updatePreorderHint() {}
 
 function renderPreview() {
   const table = document.getElementById('preview-table');
