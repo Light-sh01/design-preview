@@ -127,11 +127,7 @@
 
   .prefix-item .item-label::before { content: "* "; color: #e25d3a; white-space: pre; }
 
-  .item-new-tag {
-    font-size: 10px; padding: 1px 5px; border-radius: 3px;
-    font-weight: 700; line-height: 16px; letter-spacing: 0.3px;
-    background: #e67e22; color: #fff; margin-left: 6px; flex-shrink: 0;
-  }
+  /* reserved */
 
   .hint { font-size: 12px; color: #999; line-height: 1.8; margin-top: 4px; }
 
@@ -410,16 +406,19 @@ function getFields() {
   }
 
   if (prefixMode === 'channel') {
-    return [
-      { key: 'ch_wechat',    label: '微信小程序' },
-      { key: 'ch_alipay',    label: '支付宝小程序' },
-      { key: 'ch_douyin',    label: '抖音小程序' },
-      { key: 'ch_pos',       label: 'POS' },
-      { key: 'ch_app',       label: 'APP' },
-      { key: 'ch_meituan',   label: '美团在线点', isNew: true },
-      { key: 'ch_douyin_ol', label: '抖音在线点', isNew: true },
-      { key: 'ch_other',     label: '其他' },
-    ];
+    const f = [];
+    f.push({ key: 'ch_wechat',    label: '微信小程序' });
+    if (preorderEnabled) f.push({ key: 'ch_wechat_pre', label: '微信小程序预订单', preorder: true });
+    f.push({ key: 'ch_alipay',    label: '支付宝小程序' });
+    if (preorderEnabled) f.push({ key: 'ch_alipay_pre', label: '支付宝小程序预订单', preorder: true });
+    f.push({ key: 'ch_douyin',    label: '抖音小程序' });
+    if (preorderEnabled) f.push({ key: 'ch_douyin_pre', label: '抖音小程序预订单', preorder: true });
+    f.push({ key: 'ch_pos',       label: 'POS' });
+    f.push({ key: 'ch_app',       label: 'APP' });
+    f.push({ key: 'ch_meituan',   label: '美团在线点' });
+    f.push({ key: 'ch_douyin_ol', label: '抖音在线点' });
+    f.push({ key: 'ch_other',     label: '其他' });
+    return f;
   }
 
   const fields = [];
@@ -459,14 +458,9 @@ function switchMode(mode) {
   saveCurrentValues();
   prefixMode = mode;
 
-  const showSplit = mode === 'type';
-  document.getElementById('row-split').classList.toggle('hidden', !showSplit);
-
-  const showPreorder = mode === 'type';
-  document.getElementById('row-preorder').classList.toggle('hidden', !showPreorder);
-
-  const showShared = mode !== 'fixed';
-  document.getElementById('row-shared').classList.toggle('hidden', !showShared);
+  document.getElementById('row-split').classList.toggle('hidden', mode !== 'type');
+  document.getElementById('row-preorder').classList.toggle('hidden', mode === 'fixed');
+  document.getElementById('row-shared').classList.toggle('hidden', mode === 'fixed');
 
   renderFields();
   renderPreview();
@@ -514,10 +508,9 @@ function renderFields() {
     item.style.animationDelay = (i * 0.03) + 's';
 
     const existingValue = savedValues[f.key] || '';
-    const newTag = f.isNew ? '<span class="item-new-tag">NEW</span>' : '';
 
     item.innerHTML = `
-      <span class="item-label">${f.label}</span>${newTag}
+      <span class="item-label">${f.label}</span>
       <input type="text" class="text-input" data-key="${f.key}"
              placeholder="限5个字符且只能输入数字英文字母"
              maxlength="5" value="${existingValue}"
@@ -530,7 +523,9 @@ function renderFields() {
 
 function updatePreorderHint() {
   const hint = document.getElementById('preorder-hint');
-  if (splitEnabled) {
+  if (prefixMode === 'channel') {
+    hint.innerHTML = '开启后，新增<span class="hl">微信小程序预订单</span>、<span class="hl">支付宝小程序预订单</span>、<span class="hl">抖音小程序预订单</span>的独立前缀<br><span style="color:#bbb;">POS、APP、美团在线点、抖音在线点、其他无预订单场景</span>';
+  } else if (splitEnabled) {
     hint.innerHTML = '开启后，新增<span class="hl">小程序堂食预订单</span>、<span class="hl">小程序自提预订单</span>的独立前缀<br><span style="color:#bbb;">员工端无预订单场景，不生成对应前缀项</span>';
   } else {
     hint.innerHTML = '开启后，新增<span class="hl">堂食预订单</span>、<span class="hl">自提预订单</span>的独立前缀';
@@ -555,7 +550,7 @@ function renderPreview() {
     if (f.channel === 'online') tagClass = 'tag-online';
     if (f.channel === 'offline') tagClass = 'tag-offline';
     if (f.preorder) tagClass = 'tag-preorder';
-    if (f.isNew) tagClass = 'tag-new';
+    
 
     html += `<tr>
       <td><span class="tag ${tagClass}">${f.label}</span></td>
@@ -589,17 +584,15 @@ function updateStateBar() {
 
   const preorderDot = document.getElementById('dot-preorder');
   const preorderText = document.getElementById('state-preorder');
+  const showPreorder = prefixMode !== 'fixed';
 
-  if (prefixMode === 'type') {
-    preorderDot.style.display = '';
-    preorderText.style.display = '';
-    document.querySelectorAll('.state-bar .sep')[1].style.display = '';
+  preorderDot.style.display = showPreorder ? '' : 'none';
+  preorderText.style.display = showPreorder ? '' : 'none';
+  document.querySelectorAll('.state-bar .sep')[1].style.display = showPreorder ? '' : 'none';
+
+  if (showPreorder) {
     preorderDot.className = preorderEnabled ? 'dot on' : 'dot off';
     preorderText.textContent = `预订单：${preorderEnabled ? '开' : '关'}`;
-  } else {
-    preorderDot.style.display = 'none';
-    preorderText.style.display = 'none';
-    document.querySelectorAll('.state-bar .sep')[1].style.display = 'none';
   }
 
   document.getElementById('state-count').textContent = `当前 ${fields.length} 个前缀项`;
